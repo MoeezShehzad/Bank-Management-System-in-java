@@ -77,13 +77,16 @@ class Bank {
 				Deposit();
 			} else {
 				System.out.println("Thank you for using ATM. Exiting..");
-				scanner.close();
 			}
 		} else {
-			if(amount >=500)
-				amount -= withdraw;
-			else
-				System.out.println("Balance is less than 500 cannot withdraw.\n Remaining Amount:" + amount);
+			if (withdraw > amount) {
+			    System.out.println("Insufficient funds! Your current balance is: " + amount);
+			} else if ((amount - withdraw) < 500) {
+			    System.out.println("Cannot withdraw! Your balance must not go below 500.");
+			} else {
+			    amount -= withdraw;
+			    System.out.println("Withdrawal successful! Remaining balance: " + amount);
+			}
 		}
 	}
 
