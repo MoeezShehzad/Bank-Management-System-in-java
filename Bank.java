@@ -9,8 +9,9 @@ class Bank {
 	Scanner scanner = new Scanner(System.in);
 	
 	// Account Variables
-	ArrayList<String> user = new ArrayList<String>();
+//	ArrayList<String> user = new ArrayList<String>();
 //	ArrayList<String> BankId = new ArrayList<String>();
+	String user;
 	String BankId ;
 	
 	// calculation variables
@@ -35,7 +36,9 @@ class Bank {
 	public void CreateAccount() {
 		
 		System.out.println("Enter Name:");
-		user.add(scanner.nextLine());
+//		user.add(scanner.nextLine());
+		
+		user = scanner.nextLine();
 		System.out.println("Enter Bank id: ");
 		BankId = scanner.nextLine();
 		System.out.println("Create a Pin"); // for authentication
@@ -77,17 +80,20 @@ class Bank {
 				scanner.close();
 			}
 		} else {
-			amount -= withdraw;
+			if(amount >=500)
+				amount -= withdraw;
+			else
+				System.out.println("Balance is less than 500 cannot withdraw.\n Remaining Amount:" + amount);
 		}
 	}
 
 	// information checking function
 	public void check() {
-		for(int i=0; i<user.size(); i++) {
-			System.out.println("UserName: " + user.get(i));			
+//		for(int i=0; i<user.size(); i++) {
+			System.out.println("UserName: " + user);			
 			System.out.println("ID: " + BankId);
 			System.out.println("Amount:" + amount);
-		}
+//		}
 	}
 	
 	public void Login() {
