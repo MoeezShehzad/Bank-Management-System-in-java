@@ -96,7 +96,7 @@ class Bank {
 		System.out.print("Enter Pin");
 		pin_verification = scanner.nextInt();
 		
-		if(BankId == null && pin_verification != pin) {
+		if(BankId == null) {
 			System.out.println("------Please Create an Account first.------");
 		}
 		else {
